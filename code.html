@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Art Gallery</title>
+    
+    <link rel="stylesheet" type="text/css" href="CSS.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Virtual Art Gallery</h1>
+    </header>
+    
+    <section id="artworks">
+        <!-- Artwork items will be dynamically added here -->
+    </section>
+
+    <script>
+        // Sample data for artworks
+        const artworks = [
+            { title: "Artwork 1", artist: "Artist 1", imageUrl: "pexels-steve-johnson-1183992.jpg" },
+            { title: "Artwork 2", artist: "Artist 2", imageUrl: "download.jpg" },
+            { title: "Artwork 3", artist: "Artist 3", imageUrl: "abstract-expressionism-abstract-painting-acrylic-paint-art.jpg" },
+        ];
+
+        // Function to display artworks
+        function displayArtworks() {
+            const artworksContainer = document.getElementById("artworks");
+
+            artworks.forEach((artwork) => {
+                const artworkItem = document.createElement("div");
+                artworkItem.classList.add("artwork-item");
+
+                const img = document.createElement("img");
+                img.src = artwork.imageUrl;
+                img.alt = artwork.title;
+
+                const title = document.createElement("h2");
+                title.textContent = artwork.title;
+
+                const artist = document.createElement("p");
+                artist.textContent = `Artist: ${artwork.artist}`;
+
+                artworkItem.appendChild(img);
+                artworkItem.appendChild(title);
+                artworkItem.appendChild(artist);
+
+                artworksContainer.appendChild(artworkItem);
+            });
+        }
+
+        // Call the function to display artworks
+        displayArtworks();
+    </script>
+</body>
+</html>
